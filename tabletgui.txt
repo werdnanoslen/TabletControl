@@ -1,0 +1,5 @@
+little, movable box w/options:
+1. eekboard
+2. xrandr -o {right, left, normal, inverted}
+
+DO: Calibrate each orientation, save output.
