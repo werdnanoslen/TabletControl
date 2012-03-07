@@ -5,23 +5,17 @@ import java.awt.event.*;
 
 public class TabletControl
 {	
-    static final String CALNORM = "xrandr -o normal";/* && xinput set-int-prop"
-	+ " \"Fujitsu Component USB Touch Panel\""
-	+ " \"Evdev Axis Calibration\" 86 3873 280 3993";*/
-    static final String CALCW = "xrandr -o left";/* && xinput set-int-prop"
-	+ " \"Fujitsu Component USB Touch Panel\""
-	+ " \"Evdev Axis Calibration\" 86 3873 280 3993";*/
-    static final String CALCCW = "xrandr -o right";/* && xinput set-int-prop"
-	+ " \"Fujitsu Component USB Touch Panel\""
-	+ " \"Evdev Axis Calibration\" 86 3873 280 3993";*/
+    static final String CALNORM = "xrandr -o normal";
+    static final String CALCW = "xrandr -o left";
+    static final String CALCCW = "xrandr -o right";
     static final String KEYBOARD = "florence";
+    //TODO: add screen calibration here
 
     Button normal, cw, ccw, keyboard;
 
     public static void main(String[] args)
     {	
-	TabletControl tabletControl = new TabletControl("TabletControl");
-	
+	TabletControl tabletControl = new TabletControl("TabletControl");	
     }
 
     public TabletControl(String title)
@@ -64,18 +58,17 @@ public class TabletControl
 			try {Runtime.getRuntime().exec(KEYBOARD);}
 			catch (IOException ioe){ ioe.printStackTrace();}
 		}});
+	//TODO: configure scrolling/zoom?
 	
 	frame.addWindowListener(new WindowAdapter(){
 		public void windowClosing(WindowEvent e)
     		{
 			try {Runtime.getRuntime().exec(CALNORM);}
 			catch (IOException ioe){ ioe.printStackTrace();}
-			System.exit(0);
 		}});
 	frame.setAlwaysOnTop(true);
 	frame.pack();
 	frame.setLocation(0,0);
 	frame.setVisible(true);
     }
-
 }
